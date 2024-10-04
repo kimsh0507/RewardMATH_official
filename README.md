@@ -25,9 +25,9 @@ pip install -e .
 ```
 
 
-## Evaluating Reward Models
-### Generative Reward Model (LLM-as-a-judge)
-#### Direct Assessment
+# Evaluating Reward Models
+## Generative Reward Model (LLM-as-a-judge)
+### Direct Assessment
 To run api models (e.g., claude-3-5-sonnet-20240620) using direct assessment, run:
 ```
 python src/inference_reward.py \
@@ -54,7 +54,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
     # --num_sample=10
 ```
 
-#### Pairwise Comparison
+### Pairwise Comparison
 To run api models (e.g., claude-3-5-sonnet-20240620) using pairwise comparison, run:
 ```
 python src/inference_reward.py \
@@ -82,7 +82,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
     # --num_sample=10
 ```
 
-### Classifier-based Reward Model
+## Classifier-based Reward Model
 To run classifier-based reward models, run:
 ```
 CUDA_VISIBLE_DEVICES=0 python src/inference_reward.py \
@@ -95,7 +95,7 @@ CUDA_VISIBLE_DEVICES=0 python src/inference_reward.py \
     # --num_sample=10
 ```
 
-### Process Reward Model (PRM)
+## Process Reward Model (PRM)
 To run PRMs, run:
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
