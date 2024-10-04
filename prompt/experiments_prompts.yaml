@@ -1,0 +1,115 @@
+llm_judgement:
+  prompt: |-
+    Please act as an impartial judge and evaluate the quality of the response provided by an AI assistant to the user question displayed below. Your evaluation should consider factors such as the helpfulness, relevance, accuracy, depth, creativity, and level of detail of the response. Begin your evaluation by providing a short explanation. Be as objective as possible. After providing your explanation, please rate the response on a scale of 1 to 10 by strictly following this format: "[[rating]]", for example: "Rating: [[5]]". Let's think step by step.
+  format:
+    user: |-
+      [Question]
+      {problem}
+      [The Start of Assistant’s Answer]
+      Solution:
+      {eval_solution}
+      [The End of Assistant’s Answer]
+    assistant: |-
+      Rating:
+llm_judgement_pair:
+  prompt: |-
+    Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. You should choose the assistant that follows the user's instructions and answers the user's question better. Your evaluation should consider factors such as the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and provide a short explanation. Avoid any position biases and ensure that the order in which the responses were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Do not favor certain names of the assistants. Be as objective as possible. After providing your explanation, output your final verdict by strictly following this format: "Judgement: [[A]]" if assistant A is better, "Judgement: [[B]]" if assistant B is better.
+  format:
+    user: |-
+      [User Question]
+      {problem}
+      
+      [The Start of Assistant A's Answer]
+      {eval_solution_A}
+      [The End of Assistant A's Answer]
+      
+      [The Start of Assistant B's Answer]
+      {eval_solution_B}
+      [The End of Assistant B's Answer]
+WizardMath:
+  prompt: |-
+    Below is an instruction that describes a task. Write a response that appropriately completes the request.
+  format:
+    user: |-
+      ### Instruction:
+      {problem}
+
+      ### Response: Let's think step by step.
+Mistral_MetaMATH:
+  format:
+    user: |-
+      {problem}
+MATH_default:
+  prompt: |-
+    Your task is to solve a given mathematical problem. Generate the solution in a numbered list format. Make sure to put the answer (and only answer) inside \\boxed{}. Finally, write the correct answer separately under '### Answer:'. Let's think step by step.
+  format:
+    user: |-
+      Question:
+      {problem}
+    assistant: |-
+      Solution:
+      {solution}
+      ### Answer: {answer}
+MATH_default2:
+  prompt: |-
+    Your task is to solve a given mathematical problem. Generate the solution in a numbered list format. Make sure to put the answer (and only answer) inside \\boxed{}. Finally, write the correct answer separately under 'The answer is:'. Let's think step by step.
+  format:
+    user: |-
+      Question:
+      {problem}
+    assistant: |-
+      Solution: 
+      {solution}
+      The answer is: {answer}
+promethus_direct:
+  prompt: |-
+    You are a fair judge assistant tasked with providing clear, objective feedback based on specific criteria, ensuring each assessment reflects the absolute standards set for performance.
+  format:
+    user: |-
+      ###Task Description:
+      An instruction (might include an Input inside it), a response to evaluate, and a score rubric representing a evaluation criteria are given.
+      1. Write a detailed feedback that assess the quality of the response strictly based on the given score rubric, not evaluating in general.
+      2. After writing a feedback, write a score that is an integer between 1 and 5. You should refer to the score rubric.
+      3. The output format should look as follows: "Feedback: (write a feedback for criteria) [RESULT] (an integer number between 1 and 5)"
+      4. Please do not generate any other opening, closing, and explanations.
+
+      ###The instruction to evaluate:
+      {problem}
+
+      ###Response to evaluate:
+      {eval_solution}
+
+      ###Score Rubrics:
+      [Does the model demonstrate logical and effective reasoning in its responses?]
+      Score 1: The model's responses show a complete lack of logical reasoning, often resulting in irrelevant or nonsensical answers.
+      Score 2: The model occasionally shows signs of logical reasoning but generally struggles to provide coherent or relevant responses.
+      Score 3: The model usually demonstrates basic reasoning capabilities, though it may not consistently apply logical principles or fully resolve complex issues.
+      Score 4: The model frequently exhibits strong reasoning skills, effectively addressing complex questions with minor inconsistencies or errors.
+      Score 5: The model consistently demonstrates advanced reasoning abilities, providing logically sound, coherent, and sophisticated responses to complex queries.
+
+      ###Feedback:
+promethus_pair:
+  prompt: |-
+    You are a fair judge assistant assigned to deliver insightful feedback that compares individual performances, highlighting how each stands relative to others within the same cohort.
+  format:
+    user: |-
+      ###Task Description:
+      An instruction (might include an Input inside it), a response to evaluate, and a score rubric representing a evaluation criteria are given.
+      1. Write a detailed feedback that assess the quality of two responses strictly based on the given score rubric, not evaluating in general.
+      2. After writing a feedback, choose a better response between Response A and Response B. You should refer to the score rubric.
+      3. The output format should look as follows: "Feedback: (write a feedback for criteria) [RESULT] (A or B)"
+      4. Please do not generate any other opening, closing, and explanations.
+
+      ###Instruction:
+      {problem}
+
+      ###Response A:
+      {eval_solution_A}
+
+      ###Response B:
+      {eval_solution_B}
+
+      ###Score Rubric:
+      Does the model demonstrate logical and effective reasoning in its responses?
+
+      ###Feedback: 

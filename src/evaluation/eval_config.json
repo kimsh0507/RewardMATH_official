@@ -1,0 +1,12 @@
+{
+    "extract_pattern": [
+        "### Answer:"
+    ],
+    "policy": {
+        "MATH": {
+            "function": "latex_answer_check",
+            "extract_policy": "flex",
+            "eval_policy": "aggressive" 
+        }
+    }
+}

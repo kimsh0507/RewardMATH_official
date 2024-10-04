@@ -1,0 +1,86 @@
+[
+    {
+        "problem": "$441+2(21)(19)+361=x$. Solve for $x$.",
+        "answer": "1600",
+        "subject": "Algebra",
+        "level": 1,
+        "eval_solution": [
+            "We note that $361=19^2$ and $441=21^2$, so $x=21^2+2(21)(19)+19^2$",
+            "This is just the binomial expansion of $(21+19)^2=40^2=\\boxed{1600}$."
+        ],
+        "solution_reference": "human_to_GPT-4",
+        "id": 0,
+        "problem_id": 0
+    },
+    {
+        "problem": "$441+2(21)(19)+361=x$. Solve for $x$.",
+        "answer": "1600",
+        "subject": "Algebra",
+        "level": 1,
+        "eval_solution": [
+            "I notice that $441$ and $361$ are both perfect squares: $441=21^2$ and $361=19^2$.",
+            "So I can rewrite the equation as $21^2+2(21)(19)+19^2=x$.",
+            "Now I recognize a familiar pattern: this is the expansion of $(21+19)^2$, using the formula $(a+b)^2=a^2+2ab+b^2$.",
+            "So I can simplify the equation as $(21+19)^2=x$.",
+            "Then I can take the square root of both sides to get $21+19=\\sqrt{x}$.",
+            "Finally, I can subtract $19$ from both sides to isolate $x$: $21-19=\\sqrt{x}-19$.",
+            "This gives me $2=\\sqrt{x}-19$, so $2+19=\\sqrt{x}$, and $21=\\sqrt{x}$.",
+            "Squaring both sides again, I get $x=21^2$, or $x=441$."
+        ],
+        "solution_reference": "unaligned_GPT-4",
+        "id": 1,
+        "problem_id": 0
+    },
+    {
+        "problem": "The smallest distance between the origin and a point on the graph of $y=\\frac{1}{2}x^2-9$ can be expressed as $a$.  Find $a^2$.",
+        "answer": "17",
+        "subject": "Algebra",
+        "level": 5,
+        "eval_solution": [
+            "By the distance formula, we are trying to minimize $\\sqrt{x^2+y^2}=\\sqrt{x^2+\\frac{1}{4}x^4-9x^2+81}$",
+            "In general, minimization problems like this require calculus, but one optimization method that sometimes works is to try to complete the square",
+            "Pulling out a factor of $\\frac{1}{4}$ from under the radical, we have \\begin{align*}\n\\frac{1}{2}\\sqrt{4x^2+x^4-36x^2+324}&=\\frac{1}{2}\\sqrt{(x^4-32x^2+256)+68} \\\\\n&= \\frac{1}{2}\\sqrt{(x^2-16)^2+68}\n\\end{align*}",
+            "This last expression is minimized when the square equals $0$, that is, when $x^2=16$",
+            "Then the distance is $\\frac{\\sqrt{68}}{2}=\\sqrt{17}$",
+            "Hence the desired answer is $\\sqrt{17}^2 = \\boxed{17}$."
+        ],
+        "solution_reference": "human_to_GPT-4",
+        "id": 732,
+        "problem_id": 366
+    },
+    {
+        "problem": "The smallest distance between the origin and a point on the graph of $y=\\frac{1}{2}x^2-9$ can be expressed as $a$.  Find $a^2$.",
+        "answer": "17",
+        "subject": "Algebra",
+        "level": 5,
+        "eval_solution": [
+            "I want to find the point on the parabola $y=\\frac{1}{2}x^2-9$ that is closest to the origin.",
+            "This means that I want to minimize the distance between the origin and any point $(x,y)$ on the parabola.",
+            "The distance formula tells me that the distance squared is equal to $x^2+y^2$, so I can use that as a function to minimize.",
+            "Since $y=\\frac{1}{2}x^2-9$, I can substitute that into the distance squared function and get $d^2=x^2+\\left(\\frac{1}{2}x^2-9\\right)^2$.",
+            "I can simplify this by expanding the square and combining like terms.",
+            "I get $d^2=\\frac{5}{4}x^4-9x^2+81$.",
+            "To minimize this function, I need to find its critical points, where the derivative is zero or undefined.",
+            "The derivative is $d^2{}'=5x^3-18x$.",
+            "This is undefined when $x=0$, and zero when $5x^3-18x=0$.",
+            "Factoring out an $x$ gives me $x(5x^2-18)=0$.",
+            "This has three solutions: $x=0, x=\\sqrt{\\frac{18}{5}}, x=-\\sqrt{\\frac{18}{5}}$.",
+            "These are the possible $x$-coordinates of the points on the parabola that are closest or farthest from the origin.",
+            "To find the corresponding $y$-coordinates, I need to plug these values back into the parabola equation.",
+            "For $x=0$, I get $y=\\frac{1}{2}(0)^2-9=-9$.",
+            "For $x=\\sqrt{\\frac{18}{5}}$, I get $y=\\frac{1}{2}\\left(\\sqrt{\\frac{18}{5}}\\right)^2-9=-\\frac{81}{10}$.",
+            "For $x=-\\sqrt{\\frac{18}{5}}$, I get $y=\\frac{1}{2}\\left(-\\sqrt{\\frac{18}{5}}\\right)^2-9=-\\frac{81}{10}$ as well.",
+            "So the three points on the parabola are $(0,-9)$, $\\left(\\sqrt{\\frac{18}{5}},-\\frac{81}{10}\\right)$, and $\\left(-\\sqrt{\\frac{18}{5}},-\\frac{81}{10}\\right)$.",
+            "To determine which one is the closest to the origin, I need to compare their distances squared.",
+            "For $(0,-9)$, the distance squared is $0^2+(-9)^2=81$.",
+            "For $\\left(\\sqrt{\\frac{18}{5}},-\\frac{81}{10}\\right)$, the distance squared is $\\left(\\sqrt{\\frac{18}{5}}\\right)^2+\\left(-\\frac{81}{10}\\right)^2=\\frac{18}{5}+\\frac{6561}{100}=\\frac{3401}{20}$.",
+            "For $\\left(-\\sqrt{\\frac{18}{5}},-\\frac{81}{10}\\right)$, the distance squared is the same as the previous point, since the $x$-coordinate is just negated.",
+            "So the smallest distance squared is $81$, and it occurs when $x=0$.",
+            "Therefore, the smallest distance between the origin and the parabola is $a=\\sqrt{81}=9$.",
+            "The problem asks for $a^2$, which is $9^2=81$."
+        ],
+        "solution_reference": "unaligned_GPT-4",
+        "id": 733,
+        "problem_id": 366
+    }
+]
