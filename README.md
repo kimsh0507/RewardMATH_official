@@ -130,15 +130,18 @@ python src/evaluate_results.py \
 
 ## Repository Structure
 ```
-├── dataset/                    <- Stores the datasets used in the project. These may include training, validation, and test sets.
-├── prompt/                     <- Contains files related to input prompts or configurations used to guide or configure the processes or models.
-├── results/                    <- Holds output files from simulations or model evaluations, such as tables, figures, and logs.
-├── scripts/                    <- Includes various scripts used for batch processing, data manipulation, and auxiliary tasks.
+├── dataset/                    <- Stores the benchmarks (RewardMATH, RewardMATH-pairwise, Rewardbench) and math test sets.
+├── prompt/                     <- Contains files related to input prompts.
+├── results/                    <- Holds output files from model evaluations.
+├── scripts/                    <- Includes various scripts used for experiments.
 ├── src/                        <- Source code directory for the project.
-|   ├── evaluation/                  ├── Contains scripts and modules for model evaluation, such as performance metrics and test routines.
-|   ├── models/                      ├── Includes model definitions and possibly pre-trained models or their configurations.
+|   ├── evaluation/                  ├── Contains scripts and modules for model evaluation.
+|   ├── models/                      ├── Module for existing reward models.
 |   ├── utils/                       ├── Utility scripts and helper functions used across the project.
-|   └── *.py                         └── Other Python scripts that do not necessarily fit into the above subdirectories.
+|   ├── evaluate_results.py          ├── Get results for evaluating reward models on benchamrk and other experiments.
+|   ├── exp_best_of_n.py             ├── Script for Best-of-N sampling.
+|   ├── inference_reward.py          ├── Inference reward models.
+|   └── prompts.py                   └── Manages and generates prompts.
 └── tests.py                    <- Unit tests for the project's modules, ensuring the correctness of the code.
 ```
 
