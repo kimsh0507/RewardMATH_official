@@ -29,7 +29,7 @@ pip install -e .
 ## Generative Reward Model (LLM-as-a-judge)
 ### Direct Assessment
 To run api models (e.g., claude-3-5-sonnet-20240620) using direct assessment, run:
-```
+```bash
 python src/inference_reward.py \
     --input_path=dataset/benchmark/RewardMATH_direct.json \
     --save_path=YOUR_SAVE_PATH \
@@ -42,7 +42,7 @@ python src/inference_reward.py \
 ```
 
 To run models with vllm (e.g., meta-llama/Meta-Llama-3-70B-Instruct), run:
-```
+```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
     --input_path=dataset/benchmark/RewardMATH_direct.json \
     --save_path=YOUR_SAVE_PATH \
@@ -56,7 +56,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
 
 ### Pairwise Comparison
 To run api models (e.g., claude-3-5-sonnet-20240620) using pairwise comparison, run:
-```
+```bash
 python src/inference_reward.py \
     --input_path=dataset/benchmark/RewardMATH_pairwise.json \
     --save_path=YOUR_SAVE_PATH \
@@ -69,7 +69,7 @@ python src/inference_reward.py \
 ```
 
 To run models with vllm (e.g., meta-llama/Meta-Llama-3-70B-Instruct), run:
-```
+```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
     --input_path=dataset/benchmark/RewardMATH_pairwise.json \
     --save_path=YOUR_SAVE_PATH \
@@ -84,7 +84,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
 
 ## Classifier-based Reward Model
 To run classifier-based reward models, run:
-```
+```bash
 CUDA_VISIBLE_DEVICES=0 python src/inference_reward.py \
     --input_path=dataset/benchmark/RewardMATH_direct.json \
     --save_path=YOUR_SAVE_PATH \
@@ -97,7 +97,7 @@ CUDA_VISIBLE_DEVICES=0 python src/inference_reward.py \
 
 ## Process Reward Model (PRM)
 To run PRMs, run:
-```
+```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
     --input_path=dataset/benchmark/RewardMATH_direct.json \
     --save_path=YOUR_SAVE_PATH \
@@ -108,7 +108,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python src/inference_reward.py \
 
 
 ## Getting Benchmark Scores
-```shell
+```bash
 ### Results of direct assessment (default)
 python src/evaluate_results.py \
     --result_dir=YOUR_RESULTS_FILES \
