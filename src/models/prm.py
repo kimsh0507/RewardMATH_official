@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
+import os
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 from models.reasoneval import ReasonEval_7B, ReasonEval_34B
+from utils.utils import is_ipex_available
 
 class PRM(ABC):
     def __init__(self, model_name):
@@ -23,7 +25,24 @@ class ProcessRewardModel(PRM):
        self.tokenizer = AutoTokenizer.from_pretrained("EleutherAI/llemma_7b")
     
     def _set_model(self):
-        return AutoModelForCausalLM.from_pretrained(self.model_name, torch_dtype=torch.bfloat16, device_map="auto")
+        if torch.cuda.is_available():
+            n_gpus = torch.cuda.device_count()
+        if is_ipex_available() and torch.xpu.is_available():
+            n_gpus = torch.xpu.device_count()
+
+        device_map="auto"
+        max_memory = f"20000MB"
+        max_memory = {i: max_memory for i in range(n_gpus)}
+        if os.environ.get("LOCAL_RANK") is not None:
+            local_rank = int(os.environ.get("LOCAL_RANK", "0"))
+            device_map = {"": local_rank}
+            max_memory = {"": max_memory[local_rank]}
+        return AutoModelForCausalLM.from_pretrained(
+            self.modelz_name,
+            torch_dtype=torch.bfloat16,
+            device_map=device_map,
+            max_memory=max_memory,
+        )
     
     def get_results(self, prompt):
         begin_solution_tokens = self.tokenizer.encode("\n\n# Solution", add_special_tokens=False)[1:]
